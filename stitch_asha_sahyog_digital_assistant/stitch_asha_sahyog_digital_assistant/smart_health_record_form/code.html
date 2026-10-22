@@ -1,0 +1,604 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Smart Health Record - Sukanya ASHA Digital</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from provided style guidance -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d6e3ff",
+                        "surface-container-highest": "#e3e2e6",
+                        "on-primary-container": "#708ab5",
+                        "secondary": "#1b6d24",
+                        "inverse-surface": "#2f3033",
+                        "surface-bright": "#faf9fd",
+                        "accent-green": "#e8f5e9",
+                        "secondary-fixed-dim": "#88d982",
+                        "on-primary-fixed": "#001b3d",
+                        "inverse-primary": "#aec7f6",
+                        "on-tertiary-fixed-variant": "#6c391d",
+                        "surface-variant": "#e3e2e6",
+                        "green-vibrant": "#2ecc71",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1b1e",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "on-surface": "#1a1b1e",
+                        "outline": "#cbd5e1",
+                        "surface": "#faf9fd",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#efedf1",
+                        "on-secondary-container": "#217128",
+                        "surface-container-low": "#f4f3f7",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#a3f69c",
+                        "saffron": "#e65100",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface-container-high": "#e9e7eb",
+                        "on-tertiary-fixed": "#341100",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#002204",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbcb",
+                        "accent-saffron": "#fff3e0",
+                        "surface-tint": "#465f88",
+                        "background": "#faf9fd",
+                        "on-tertiary-container": "#b97958",
+                        "tertiary-container": "#3d1500",
+                        "on-surface-variant": "#44474e",
+                        "inverse-on-surface": "#f1f0f4",
+                        "primary-fixed-dim": "#aec7f6",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#a0f399",
+                        "on-secondary-fixed-variant": "#005312",
+                        "primary-container": "#002147",
+                        "outline-variant": "#c4c6cf",
+                        "surface-dim": "#dad9dd",
+                        "primary": "#002147",
+                        "error": "#dc2626",
+                        "tertiary": "#180500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "1.5rem",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1rem",
+                        "touch-target-min": "48px",
+                        "stack-sm": "0.5rem",
+                        "gutter": "1rem",
+                        "stack-md": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }]
+                    },
+                    "boxShadow": {
+                        "voice-active": "0 4px 12px rgba(0, 33, 71, 0.08)",
+                        "card": "0 1px 3px rgba(0, 0, 0, 0.05)"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        /* Custom scrollbar for web */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-dim'); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline'); 
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Pulse animation for active voice */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .voice-active-indicator::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background-color: theme('colors.secondary');
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row" data-sukanya-page="form-smart" data-sakhi-page="form-smart">
+
+  <!-- Desktop Left Navigation Sidebar -->
+  <nav class="w-64 fixed left-0 top-0 h-full bg-surface-container-lowest border-r border-outline-variant z-50 p-4 hidden md:flex flex-col justify-between shadow-sm">
+    <div class="space-y-6">
+      <!-- Brand Logo & App Title -->
+      <div class="flex items-center gap-3 px-2 py-1">
+        <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-bold shadow-sm">
+          <span class="material-symbols-outlined text-2xl">local_hospital</span>
+        </div>
+        <div>
+          <h1 class="font-extrabold text-base text-primary leading-tight" data-i18n="app_name">Sukanya ASHA</h1>
+          <p class="text-[11px] text-on-surface-variant font-medium" data-i18n="app_subtitle">Digital Health Assistant</p>
+        </div>
+      </div>
+
+      <!-- Gemma 4 12B AI Connected Badge -->
+      <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 flex items-center gap-2.5 shadow-xs">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+        </span>
+        <div class="flex-1 min-w-0">
+          <p class="text-[11px] font-bold text-emerald-900 leading-tight" data-i18n="ai_badge_title">Gemma 4 12B AI</p>
+          <p class="text-[10px] text-emerald-700 truncate" data-i18n="ai_badge_subtitle">Clinical Triage &amp; Schedule</p>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="flex flex-col gap-1.5">
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-medium transition-colors" href="../home_layout/code.html">
+          <span class="material-symbols-outlined text-xl">home</span>
+          <span class="text-sm" data-i18n="nav_home">Home Dashboard</span>
+        </a>
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-medium transition-colors" href="../calendar_scheduler_smart_layout/code.html">
+          <span class="material-symbols-outlined text-xl">calendar_month</span>
+          <span class="text-sm" data-i18n="nav_calendar">Visit Schedule</span>
+        </a>
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-primary text-white font-bold transition-colors shadow-sm" href="../smart_health_record_form/code.html">
+          <span class="material-symbols-outlined text-xl">clinical_notes</span>
+          <span class="text-sm" data-i18n="nav_records">Smart Health Form</span>
+        </a>
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-medium transition-colors" href="../health_record_form_part_1/code.html">
+          <span class="material-symbols-outlined text-xl">description</span>
+          <span class="text-sm" data-i18n="nav_forms">NHM Form (Part 1 &amp; 2)</span>
+        </a>
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-medium transition-colors" href="../settings_layout/code.html">
+          <span class="material-symbols-outlined text-xl">settings</span>
+          <span class="text-sm" data-i18n="nav_settings">Settings</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Actions: Emergency & Profile -->
+    <div class="space-y-3 pt-4 border-t border-outline-variant">
+      <button type="button" id="btn-emergency" class="w-full flex items-center justify-center gap-2 bg-error text-white font-bold py-2.5 px-4 rounded-xl hover:bg-red-700 transition-colors shadow-sm active:scale-98">
+        <span class="material-symbols-outlined text-lg">emergency</span>
+        <span class="text-sm" data-i18n="emergency_sos">Emergency SOS (108)</span>
+      </button>
+      <div class="flex items-center gap-3 px-2 py-1.5 bg-surface-container-low rounded-xl">
+        <div class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xs">
+          AW
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs font-bold text-on-surface truncate" id="worker-sidebar-name">Anita Devi (ASHA)</p>
+          <p class="text-[10px] text-on-surface-variant truncate">ID #104 • Rampur</p>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Top Bar -->
+  <header class="md:hidden sticky top-0 left-0 w-full z-40 bg-surface-container-lowest/95 backdrop-blur border-b border-outline-variant px-4 h-14 flex items-center justify-between shadow-xs">
+    <div class="flex items-center gap-2.5">
+      <a href="../home_layout/code.html" class="w-9 h-9 rounded-xl bg-surface-container-low flex items-center justify-center text-primary">
+        <span class="material-symbols-outlined text-lg">arrow_back</span>
+      </a>
+      <h1 class="font-extrabold text-sm text-primary">Smart Health Form</h1>
+    </div>
+    <div class="flex items-center gap-2">
+      <button type="button" id="btn-quick-voice-mobile" class="h-8 px-2.5 bg-secondary text-white rounded-lg text-xs font-bold flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">mic</span>
+        <span>Voice</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Canvas -->
+  <main class="flex-1 md:ml-64 min-h-screen p-4 md:p-8 pb-24 md:pb-12 max-w-5xl mx-auto w-full">
+<!-- Page Header -->
+<div class="mb-stack-md flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-1" data-i18n="form_smart_title">Smart Health Record</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="form_smart_subtitle">Enter household clinical data or view previously stored records.</p>
+</div>
+<div class="flex items-center gap-2">
+<button id="btn-save-draft" class="bg-surface-container-high text-primary border border-outline font-label-md text-label-md h-touch-target-min px-4 rounded-lg flex items-center gap-1.5 hover:bg-surface-container active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="save">save</span>
+<span data-i18n="btn_save_draft">Save Draft</span>
+</button>
+<button id="btn-save-record" class="bg-primary text-on-primary font-label-md text-label-md h-touch-target-min px-5 rounded-lg flex items-center gap-1.5 hover:bg-primary-container active:scale-95 transition-all shadow-card">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle">check_circle</span>
+<span data-i18n="btn_save_record">Save Record</span>
+</button>
+</div>
+</div>
+
+<!-- Tab Navigation (Form vs Stored Records) -->
+<div class="flex items-center gap-2 p-1.5 bg-surface-container-low rounded-xl border border-outline/50 mb-stack-md">
+<button id="tab-btn-form" class="flex-1 py-2.5 px-4 rounded-lg font-label-md text-label-md font-bold bg-primary text-on-primary shadow-sm transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">edit_document</span>
+<span data-i18n="tab_form_entry">Health Record Form</span>
+</button>
+<button id="tab-btn-stored" class="flex-1 py-2.5 px-4 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">folder_open</span>
+<span data-i18n="tab_stored_records">Stored Records</span> (<span id="stored-count">0</span>)
+</button>
+</div>
+
+<!-- Tab 1: Form Entry View -->
+<div id="tab-view-form" class="flex flex-col gap-stack-md">
+
+<!-- Voice Studio Hero Banner -->
+<div class="bg-gradient-to-r from-primary-container/20 via-surface-container-low to-secondary-container/20 border border-primary/20 rounded-2xl p-4 md:p-5 mb-stack-md shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+  <div class="flex items-center gap-3.5">
+    <div class="w-12 h-12 rounded-2xl bg-primary text-on-primary flex items-center justify-center shadow-md">
+      <span class="material-symbols-outlined text-[26px]">record_voice_over</span>
+    </div>
+    <div>
+      <h3 class="font-headline-sm text-primary font-bold text-base md:text-lg flex items-center gap-2">
+        <span data-i18n="voice_studio_title">Audio-to-Transcript Voice Studio</span>
+        <span class="text-[11px] px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-bold" data-i18n="voice_studio_badge">✨ AI Powered</span>
+      </h3>
+      <p class="font-body-sm text-xs text-on-surface-variant mt-0.5" data-i18n="voice_studio_desc">Record patient conversation in regional languages — transmits and autofills in English.</p>
+    </div>
+  </div>
+  <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+    <div class="flex items-center gap-1.5 bg-surface-container-lowest border border-outline rounded-xl px-3 py-1.5 shadow-2xs">
+      <span class="material-symbols-outlined text-secondary text-base">translate</span>
+      <span class="text-xs font-bold text-primary whitespace-nowrap">Transcription:</span>
+      <select id="smart-transcribe-lang" class="select-speech-lang bg-transparent border-none text-primary font-bold text-xs focus:ring-0 cursor-pointer py-0.5 pr-4 pl-1">
+        <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+        <option value="mr">🇮🇳 मराठी (Marathi)</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="ta">🇮🇳 தமிழ் (Tamil)</option>
+        <option value="bn">🇮🇳 বাংলা (Bengali)</option>
+        <option value="auto">🌐 Auto-Detect</option>
+      </select>
+    </div>
+    <button type="button" id="btn-record-visit" class="h-touch-target-min px-5 bg-primary text-on-primary font-label-md text-xs font-bold rounded-xl shadow-card hover:bg-primary-container active:scale-95 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+      <span class="material-symbols-outlined text-[20px]">mic</span>
+      <span data-i18n="btn_open_voice_studio">Open Voice Studio</span>
+    </button>
+  </div>
+</div>
+
+<!-- Forms Container -->
+<div class="flex flex-col gap-stack-md">
+<!-- Section 1: Basic Info (Fully Expanded) -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline shadow-card overflow-hidden form-section-toggle">
+<!-- Section Header -->
+<div class="px-gutter py-3 border-b border-surface-dim bg-surface-bright flex items-center justify-between cursor-pointer toggle-header group">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="person_add">person_add</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-primary">Basic Information</h3>
+</div>
+<button class="text-on-surface-variant p-1 rounded hover:bg-surface-container-high transition-colors focus:outline-none">
+<span class="material-symbols-outlined transform transition-transform duration-200 chevron-icon rotate-180" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- Section Content -->
+<div class="form-content p-gutter md:p-stack-lg flex flex-col gap-stack-md">
+<!-- Full Name Field -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-primary flex items-center gap-1">
+                            Head of Household Name <span class="text-error">*</span>
+</label>
+<div class="relative flex items-center border border-outline rounded-lg bg-surface-container-lowest focus-within:border-primary focus-within:ring-1 focus-within:ring-primary overflow-hidden transition-all h-touch-target-min">
+<input class="flex-grow bg-transparent border-none focus:ring-0 px-3 py-2 text-on-surface font-body-md placeholder:text-outline-variant h-full" placeholder="Enter full name" type="text" data-sakhi-field="patient.name,child.name">
+<div class="w-px h-6 bg-surface-dim mx-1"></div>
+<button aria-label="Use voice input" class="px-3 h-full flex items-center justify-center text-secondary hover:bg-surface-container-low active:bg-surface-container-high transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</div>
+</div>
+<!-- Age Field -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-end">
+<label class="font-label-md text-label-md text-primary">Age</label>
+</div>
+<div class="relative flex items-center border border-outline rounded-lg bg-surface-container-lowest focus-within:border-primary focus-within:ring-1 focus-within:ring-primary overflow-hidden transition-all h-touch-target-min">
+<input class="flex-grow bg-transparent border-none focus:ring-0 px-3 py-2 text-on-surface font-body-md placeholder:text-outline-variant h-full" placeholder="e.g. 34" type="text" data-sakhi-field="patient.age">
+<div class="w-px h-6 bg-surface-dim mx-1"></div>
+<button aria-label="Use voice input" class="px-3 h-full flex items-center justify-center text-secondary hover:bg-surface-container-low active:bg-surface-container-high transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</div>
+</div>
+<!-- Mobile Number -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-primary">Mobile Number</label>
+<div class="relative flex items-center border border-outline rounded-lg bg-surface-container-lowest focus-within:border-primary focus-within:ring-1 focus-within:ring-primary overflow-hidden transition-all h-touch-target-min">
+<span class="pl-3 text-on-surface-variant font-body-md border-r border-surface-dim pr-2 py-2 h-full flex items-center bg-surface-container-lowest">+91</span>
+<input class="flex-grow bg-transparent border-none focus:ring-0 px-3 py-2 text-on-surface font-body-md placeholder:text-outline-variant h-full" placeholder="10-digit number" type="tel" data-sakhi-field="patient.mobile">
+<div class="w-px h-6 bg-surface-dim mx-1"></div>
+<button aria-label="Use voice input" class="px-3 h-full flex items-center justify-center text-primary-container hover:bg-surface-container-low active:bg-surface-container-high transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</div>
+</div>
+<!-- Grid for counts -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md pt-2">
+<!-- Family Size -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-primary">Total Family Size</label>
+<div class="relative flex items-center border border-outline rounded-lg bg-surface-container-lowest focus-within:border-primary focus-within:ring-1 focus-within:ring-primary overflow-hidden transition-all h-touch-target-min">
+<input class="flex-grow bg-transparent border-none focus:ring-0 px-3 py-2 text-on-surface font-body-md placeholder:text-outline-variant h-full text-center" placeholder="0" type="number">
+<div class="w-px h-6 bg-surface-dim mx-1"></div>
+<button class="px-3 h-full flex items-center justify-center text-primary-container hover:bg-surface-container-low transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</div>
+</div>
+<!-- Gender Breakdown (Simplified for brevity, complex field conceptually) -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-primary">Adults (M / F / O)</label>
+<div class="relative flex items-center border border-outline rounded-lg bg-surface-container-lowest focus-within:border-primary focus-within:ring-1 focus-within:ring-primary overflow-hidden transition-all h-touch-target-min">
+<input class="flex-grow bg-transparent border-none focus:ring-0 px-3 py-2 text-on-surface font-body-md placeholder:text-outline-variant h-full text-center" placeholder="e.g. 2 / 2 / 0" type="text">
+<div class="w-px h-6 bg-surface-dim mx-1"></div>
+<button class="px-3 h-full flex items-center justify-center text-primary-container hover:bg-surface-container-low transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</div>
+</div>
+<!-- Children under 5 -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-primary">Children (Under 5yrs)</label>
+<div class="relative flex items-center border border-outline rounded-lg bg-surface-container-lowest focus-within:border-primary focus-within:ring-1 focus-within:ring-primary overflow-hidden transition-all h-touch-target-min">
+<input class="flex-grow bg-transparent border-none focus:ring-0 px-3 py-2 text-on-surface font-body-md placeholder:text-outline-variant h-full text-center" placeholder="0" type="number">
+<div class="w-px h-6 bg-surface-dim mx-1"></div>
+<button class="px-3 h-full flex items-center justify-center text-primary-container hover:bg-surface-container-low transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</div>
+</div>
+<!-- Elderly -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-primary">Elderly (65+ yrs)</label>
+<div class="relative flex items-center border border-outline rounded-lg bg-surface-container-lowest focus-within:border-primary focus-within:ring-1 focus-within:ring-primary overflow-hidden transition-all h-touch-target-min">
+<input class="flex-grow bg-transparent border-none focus:ring-0 px-3 py-2 text-on-surface font-body-md placeholder:text-outline-variant h-full text-center" placeholder="0" type="number">
+<div class="w-px h-6 bg-surface-dim mx-1"></div>
+<button class="px-3 h-full flex items-center justify-center text-primary-container hover:bg-surface-container-low transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Maternal Health (Collapsible) -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline overflow-hidden opacity-90 transition-opacity form-section-toggle">
+<div class="px-gutter py-3 bg-surface-container-lowest flex items-center justify-between cursor-pointer group toggle-header">
+<div class="flex items-center gap-3">
+<!-- Toggle Switch (OFF state) -->
+<button aria-checked="false" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-surface-dim transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" role="switch" type="button">
+<span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface-container-lowest shadow ring-0 transition duration-200 ease-in-out translate-x-0"></span>
+</button>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant group-hover:text-primary transition-colors">Maternal Health</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70">Skip if no pregnant females</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant transform transition-transform duration-200 chevron-icon" data-icon="expand_more">expand_more</span>
+</div>
+<div class="hidden form-content px-gutter py-4 border-t border-outline bg-surface-bright">
+<div class="space-y-4">
+<div>
+<label class="block font-label-md text-label-md text-primary mb-2">
+                            Currently Pregnant? <span class="text-error">*</span>
+</label>
+<div class="flex gap-4">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="pregnant" type="radio" value="yes" data-sakhi-field="_pregnant">
+<span class="font-body-md text-body-md">Yes</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="pregnant" type="radio" value="no" data-sakhi-field="_pregnant">
+<span class="font-body-md text-body-md">No</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-primary mb-1">
+                            Months / Status
+                        </label>
+<div class="flex items-center border border-outline rounded-lg bg-surface-container-lowest overflow-hidden focus-within:ring-2 focus-within:ring-primary focus-within:border-transparent">
+<input class="flex-1 min-w-0 bg-transparent py-3 px-4 text-body-md text-on-surface outline-none border-none focus:ring-0 placeholder:text-on-surface-variant/50" placeholder="e.g., 5 months, first trimester..." type="text" data-sakhi-field="pregnancy.gestational_weeks" data-sakhi-format="weeks">
+<button class="px-4 py-3 flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined">mic</span>
+</button>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-primary mb-2">
+                            Taking Iron/Calcium Supplements?
+                        </label>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 border border-outline rounded-full font-label-md text-label-md hover:bg-surface-container-low transition-colors" type="button">Yes, both</button>
+<button class="px-4 py-2 border border-outline rounded-full font-label-md text-label-md hover:bg-surface-container-low transition-colors" type="button">Iron only</button>
+<button class="px-4 py-2 border border-outline rounded-full font-label-md text-label-md hover:bg-surface-container-low transition-colors" type="button">Calcium only</button>
+<button class="px-4 py-2 bg-surface-container-high border-transparent rounded-full font-label-md text-label-md" type="button">None</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Child Health (Collapsible) -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline overflow-hidden opacity-90 transition-opacity mb-8 form-section-toggle">
+<div class="px-gutter py-3 bg-surface-container-lowest flex items-center justify-between cursor-pointer group toggle-header">
+<div class="flex items-center gap-3">
+<!-- Toggle Switch (OFF state) -->
+<button aria-checked="false" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-surface-dim transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" role="switch" type="button">
+<span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface-container-lowest shadow ring-0 transition duration-200 ease-in-out translate-x-0"></span>
+</button>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant group-hover:text-primary transition-colors">Child Health</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70">Skip if no children under 5</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant transform transition-transform duration-200 chevron-icon" data-icon="expand_more">expand_more</span>
+</div>
+<div class="hidden form-content px-gutter py-4 border-t border-outline bg-surface-bright">
+<div class="space-y-4">
+<div>
+<label class="block font-label-md text-label-md text-primary mb-1">
+                            Immunization Status <span class="text-error">*</span>
+</label>
+<div class="flex items-center border border-outline rounded-lg bg-surface-container-lowest overflow-hidden focus-within:ring-2 focus-within:ring-primary focus-within:border-transparent">
+<input class="flex-1 min-w-0 bg-transparent py-3 px-4 text-body-md text-on-surface outline-none border-none focus:ring-0 placeholder:text-on-surface-variant/50" placeholder="E.g., Polio, BCG, pending..." required="" type="text" data-sakhi-field="immunization.vaccines_due,immunization.vaccines_given_today" data-sakhi-format="list">
+<button class="px-4 py-3 flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined">mic</span>
+</button>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-primary mb-1">
+                            Nutrition / Weight Notes
+                        </label>
+<div class="flex items-center border border-outline rounded-lg bg-surface-container-lowest overflow-hidden focus-within:ring-2 focus-within:ring-primary focus-within:border-transparent">
+<input class="flex-1 min-w-0 bg-transparent py-3 px-4 text-body-md text-on-surface outline-none border-none focus:ring-0 placeholder:text-on-surface-variant/50" placeholder="E.g., Underweight, normal..." type="text" data-sakhi-field="growth_assessment.weight_for_age,feeding.diet_description">
+<button class="px-4 py-3 flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined">mic</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Action Button for Voice Command (Mobile only visual cue) -->
+<div class="fixed bottom-24 right-4 md:hidden z-30">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:bg-primary-container active:scale-90 transition-transform focus:outline-none focus:ring-4 focus:ring-primary/30" id="btn-record-visit">
+<span class="material-symbols-outlined text-[28px]" data-icon="mic">mic</span>
+</button>
+</div>
+<!-- Bottom Action Bar for Form Entry -->
+<div class="flex flex-col sm:flex-row justify-between items-center gap-3 mt-4 mb-8 pt-4 border-t border-outline-variant/60">
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary">cloud_done</span>
+<span>Auto-syncs with SQLite &amp; MongoDB Vector Store</span>
+</div>
+<div class="flex items-center gap-2 w-full sm:w-auto">
+<button type="button" class="bg-surface-container-high text-primary border border-outline font-label-md text-label-md h-touch-target-min px-6 rounded-lg flex items-center justify-center gap-2 hover:bg-surface-container active:scale-95 transition-all w-full sm:w-auto" onclick="SukanyaForm.saveRecordAndGo('../home_layout/code.html')">
+<span class="material-symbols-outlined text-[18px]">save</span>
+Save &amp; Return Home
+</button>
+<button type="button" class="bg-primary text-on-primary font-label-md text-label-md h-touch-target-min px-6 rounded-lg flex items-center justify-center gap-2 hover:bg-primary-container active:scale-95 transition-all shadow-card w-full sm:w-auto" onclick="SukanyaForm.saveRecordAndGo(null)">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+Save Record
+</button>
+</div>
+</div>
+</div><!-- end of #tab-view-form -->
+
+<!-- Tab 2: Stored Records Database View -->
+<div id="tab-view-stored" class="hidden flex-col gap-stack-md">
+<!-- Top Controls -->
+<div class="flex flex-col sm:flex-row justify-between items-center gap-3 bg-surface-container-lowest p-4 rounded-xl border border-outline shadow-sm">
+<div class="flex items-center gap-2 w-full sm:w-auto">
+<span class="material-symbols-outlined text-primary text-[24px]">database</span>
+<div>
+<h3 class="font-headline-sm text-primary font-bold">Stored Health Records</h3>
+<p class="font-body-sm text-xs text-on-surface-variant">Clinical records indexed in SQLite &amp; MongoDB Vector Store</p>
+</div>
+</div>
+<div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+<button type="button" id="btn-export-csv" class="bg-surface-container-high text-primary border border-outline hover:bg-surface-container font-label-md text-xs h-touch-target-min px-4 rounded-lg flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[18px]">download</span>
+Export CSV
+</button>
+<button type="button" class="bg-primary text-on-primary hover:bg-primary-container font-label-md text-xs h-touch-target-min px-4 rounded-lg flex items-center gap-1.5 transition-all shadow-sm" onclick="SukanyaForm.renderStoredRecords()">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+Refresh
+</button>
+</div>
+</div>
+
+<!-- Live Stored Records Feed -->
+<div id="stored-records-list" class="flex flex-col gap-stack-md">
+<div class="text-center py-8">
+<span class="material-symbols-outlined text-3xl animate-spin text-primary">sync</span>
+<p class="font-body-sm text-xs text-on-surface-variant mt-2">Loading stored records…</p>
+</div>
+</div>
+</div><!-- end of #tab-view-stored -->
+
+</main>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="bg-surface-container-lowest font-medium text-sm fixed bottom-0 w-full z-50 border-t border-outline-variant flex justify-around items-center py-2 px-4 md:hidden shadow-lg">
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-3 py-1" href="../home_layout/code.html">
+      <span class="material-symbols-outlined">home</span>
+      <span class="text-[10px] mt-0.5">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-3 py-1" href="../calendar_scheduler_smart_layout/code.html">
+      <span class="material-symbols-outlined">calendar_month</span>
+      <span class="text-[10px] mt-0.5">Schedule</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-primary font-bold px-3 py-1" href="../smart_health_record_form/code.html">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">clinical_notes</span>
+      <span class="text-[10px] mt-0.5">Forms</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-3 py-1" href="../settings_layout/code.html">
+      <span class="material-symbols-outlined">settings</span>
+      <span class="text-[10px] mt-0.5">Settings</span>
+    </a>
+  </nav>
+
+  <script src="../shared/sakhi-api.js"></script>
+  <script src="../shared/sakhi-i18n.js"></script>
+  <script src="../shared/sakhi-ui.js"></script>
+  <script src="../shared/sakhi-record.js"></script>
+  <script src="../shared/sakhi-app.js"></script>
+</body></html>

@@ -1,0 +1,46 @@
+# Core — required to run the server
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+pymongo
+python-dotenv             # loads backend/.env (GEMINI_API_KEY etc.) so the fallback
+                           # transcription/translation path works without exporting
+                           # env vars by hand in every shell that launches uvicorn
+
+# ML / rules
+joblib
+scikit-learn==1.6.1      # pinned to match the pickled model_maternal_risk.joblib version
+xgboost==2.0.3            # pinned — model_condition.joblib's Booster format needs this exact major/minor
+numpy
+jsonschema
+
+# Translation (deep-translator only needs network access to Google Translate's
+# public endpoint, no API key) — used by POST /api/translate
+deep-translator
+
+# Audio transcription — mlx-whisper is installed by default on Apple Silicon:
+# GPU-native (Metal), no API key, real end-to-end voice input verified working
+# (upload + live record -> transcript -> autofill). ~0.3s per short clip once
+# the model is warm; first call after startup pays a one-time model-load cost.
+# Comment out on non-Apple-Silicon machines (it will fail to import there) and
+# uncomment one of the alternatives instead — the app degrades gracefully to
+# the frontend's "Text/Script" paste tab if none of these are available:
+mlx-whisper
+google-genai               # Gemini native-audio fallback when Whisper backends are
+                           # unavailable or fail on a clip — needs GEMINI_API_KEY
+                           # (backend/.env). Was listed here commented-out and never
+                           # installed, so this fallback silently never ran.
+#   faster-whisper           # CPU Whisper (ctranslate2) — works on Intel/Linux too
+#   openai                   # hosted Whisper API (needs OPENAI_API_KEY)
+#   google-cloud-speech      # needs GOOGLE_APPLICATION_CREDENTIALS
+
+# Optional — speaker diarization (large download, not required):
+#   torch torchaudio speechbrain
+
+# Optional — semantic search over saved records (backend/vectorstore.py).
+# ~470MB multilingual model download on first use if installed:
+#   sentence-transformers
+
+# Optional — real WhatsApp notifications instead of the console/outbox stub:
+#   twilio

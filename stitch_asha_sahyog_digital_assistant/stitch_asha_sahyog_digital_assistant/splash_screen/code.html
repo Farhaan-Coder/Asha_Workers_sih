@@ -1,0 +1,164 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ASHA Sahyog - Splash Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#88d982",
+                        "accent-green": "#e8f5e9",
+                        "saffron": "#e65100",
+                        "on-secondary-container": "#217128",
+                        "secondary": "#1b6d24",
+                        "on-surface": "#1a1b1e",
+                        "accent-saffron": "#fff3e0",
+                        "on-tertiary-fixed-variant": "#6c391d",
+                        "inverse-on-surface": "#f1f0f4",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#faf9fd",
+                        "on-surface-variant": "#44474e",
+                        "inverse-primary": "#aec7f6",
+                        "secondary-container": "#a0f399",
+                        "secondary-fixed": "#a3f69c",
+                        "green-vibrant": "#2ecc71",
+                        "on-secondary-fixed": "#002204",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#aec7f6",
+                        "primary": "#002147",
+                        "surface-container-low": "#f4f3f7",
+                        "surface-variant": "#e3e2e6",
+                        "surface-dim": "#f3f4f6",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "inverse-surface": "#2f3033",
+                        "outline": "#cbd5e1",
+                        "error": "#dc2626",
+                        "tertiary": "#180500",
+                        "on-primary-fixed": "#001b3d",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e9e7eb",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#b97958",
+                        "on-tertiary-fixed": "#341100",
+                        "surface-container-highest": "#e3e2e6",
+                        "on-primary-container": "#708ab5",
+                        "surface": "#faf9fd",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "on-background": "#1a1b1e",
+                        "surface-tint": "#465f88",
+                        "background": "#faf9fd",
+                        "tertiary-container": "#3d1500",
+                        "primary-container": "#002147",
+                        "outline-variant": "#c4c6cf",
+                        "tertiary-fixed": "#ffdbcb",
+                        "on-secondary-fixed-variant": "#005312",
+                        "surface-container": "#efedf1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "stack-lg": "1.5rem",
+                        "margin-mobile": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "touch-target-min": "48px",
+                        "stack-sm": "0.5rem",
+                        "gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "label-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .tricolor-border {
+            background: linear-transparency;
+            background-image: linear-gradient(to right, #ff9933 33%, #ffffff 33%, #ffffff 66%, #138808 66%);
+            height: 4px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 33, 71, 0.1);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border-left-color: #002147;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface h-screen w-screen overflow-hidden flex flex-col justify-between items-center relative font-body-md" data-sukanya-page="splash" data-sakhi-page="splash">
+<!-- Tricolor Border Top -->
+<div class="tricolor-border z-50"></div>
+<!-- Top Branding Header -->
+<header class="w-full flex flex-col items-center pt-12 pb-6 px-margin-mobile">
+<div class="flex flex-col items-center text-center gap-stack-sm">
+<span class="material-symbols-outlined text-primary" style="font-size: 48px; font-variation-settings: 'FILL' 1;">account_balance</span>
+<div class="flex flex-col">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary tracking-tight">Sukanya ASHA Sahyog</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 uppercase tracking-widest text-xs">Govt of India Clinical Digital Assistant</p>
+</div>
+</div>
+</header>
+<!-- Main Central Illustration -->
+<main class="flex-grow flex flex-col items-center justify-center w-full px-margin-mobile max-w-lg mx-auto">
+<div class="relative w-full aspect-square max-w-[400px] flex items-center justify-center">
+<img alt="Sukanya ASHA Sahyog Official Illustration" class="object-contain w-full h-full drop-shadow-xl" src="https://lh3.googleusercontent.com/aida/AEtjO1WD9bkVMZ60JpJbDVnHbR6vYG5Skbjo_VAiq5dBel1q4TWIIqdu2yghOpmzUWAy1hMIwQ1bO-iYJCWUEvBozlMP2mXoY56_Mqwhwcz4qcMbXSXk0P_8lZiZyXpwgn6Iw6PaWkSphPSG2q0hjSDJ0wkwikW6122tiD2eGlYTzz-I5GJ4iMSDifM0fwcRG5F0Kvnq5NFEfsmY_Iy9lSmCAxK_62ta3u-WFZJYPoDUybxQVtJ6k8VddVffzcGJ">
+</div>
+<div class="mt-8 text-center px-4">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Sukanya Digital Assistant</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Empowering ASHA Workers with AI-Assisted Clinical Support.</p>
+</div>
+</main>
+<!-- Bottom Loading Indicator -->
+<footer class="w-full flex flex-col items-center justify-center pb-12 pt-6 h-32 gap-3">
+<div class="spinner"></div>
+<p id="splash-status" class="font-body-sm text-xs text-on-surface-variant font-medium">Initializing Sukanya AI engine…</p>
+</footer>
+<script src="../shared/sakhi-api.js"></script>
+<script src="../shared/sakhi-i18n.js"></script>
+<script src="../shared/sakhi-ui.js"></script>
+<script src="../shared/sakhi-app.js"></script>
+</body></html>

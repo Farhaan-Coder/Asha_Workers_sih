@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="h-full" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sukanya ASHA Digital - Home Dashboard</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-highest": "#e3e2e6",
+            "primary": "#002147",
+            "primary-dark": "#00142e",
+            "secondary": "#1b6d24",
+            "secondary-dark": "#134e1a",
+            "surface-container-low": "#f8fafc",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#0f172a",
+            "on-surface-variant": "#475569",
+            "outline": "#cbd5e1",
+            "outline-variant": "#e2e8f0",
+            "background": "#f8fafc",
+            "saffron": "#e65100",
+            "saffron-light": "#fff3e0",
+            "saffron-border": "#ffcc80",
+            "emerald-accent": "#059669",
+            "error": "#dc2626",
+            "on-error": "#ffffff",
+            "accent-green": "#ecfdf5",
+            "accent-blue": "#eff6ff",
+            "accent-purple": "#f5f3ff",
+            "accent-saffron": "#fff7ed"
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { min-height: 100dvh; }
+    .glass-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); }
+    @keyframes pulse-subtle { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.85; transform: scale(1.03); } }
+    .pulse-badge { animation: pulse-subtle 2s infinite ease-in-out; }
+  </style>
+</head>
+<body class="bg-background text-on-surface h-full font-sans antialiased overflow-x-hidden flex flex-col md:flex-row" data-sukanya-page="home" data-sakhi-page="home">
+
+  <!-- Mobile Top Bar -->
+  <header class="glass-header border-b border-outline-variant shadow-sm flex justify-between items-center px-4 h-14 w-full md:hidden sticky top-0 z-40">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold">
+        <span class="material-symbols-outlined text-lg">health_and_safety</span>
+      </div>
+      <div>
+        <span class="font-bold text-primary text-sm block leading-tight">Sukanya ASHA</span>
+        <span class="text-[10px] text-on-surface-variant leading-none">Rampur Sub-Center</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="btn-quick-voice-mobile" type="button" class="bg-secondary text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-sm active:scale-95 transition-transform">
+        <span class="material-symbols-outlined text-sm">mic</span>
+        <span>Record</span>
+      </button>
+      <button id="btn-emergency-mobile" type="button" class="w-8 h-8 rounded-full bg-error/10 text-error flex items-center justify-center hover:bg-error/20">
+        <span class="material-symbols-outlined text-base">emergency</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Desktop Side Nav -->
+  <nav class="hidden md:flex flex-col w-64 bg-surface-container-lowest border-r border-outline-variant h-full fixed left-0 top-0 z-50 py-6 px-4 shadow-sm justify-between">
+    <div>
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-3 px-2 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-md">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div>
+          <h1 class="font-extrabold text-base text-primary leading-tight" data-i18n="app_name">Sukanya ASHA</h1>
+          <p class="text-xs text-on-surface-variant font-medium" data-i18n="app_subtitle">Digital Health Assistant</p>
+        </div>
+      </div>
+
+      <!-- Live AI Engine Indicator -->
+      <div class="mb-6 p-3 bg-accent-green border border-emerald-200 rounded-xl flex items-center gap-2.5">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+        </span>
+        <div class="flex-1 min-w-0">
+          <p class="text-[11px] font-bold text-emerald-900 leading-tight" data-i18n="ai_badge_title">Gemma 4 12B AI</p>
+          <p class="text-[10px] text-emerald-700 truncate" data-i18n="ai_badge_subtitle">Clinical Triage &amp; Schedule</p>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="flex flex-col gap-1.5">
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-primary text-white font-bold transition-colors shadow-sm" href="../home_layout/code.html">
+          <span class="material-symbols-outlined text-xl">home</span>
+          <span class="text-sm" data-i18n="nav_home">Home Dashboard</span>
+        </a>
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-medium transition-colors" href="../calendar_scheduler_smart_layout/code.html">
+          <span class="material-symbols-outlined text-xl">calendar_month</span>
+          <span class="text-sm" data-i18n="nav_calendar">Visit Schedule</span>
+        </a>
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-medium transition-colors" href="../smart_health_record_form/code.html">
+          <span class="material-symbols-outlined text-xl">clinical_notes</span>
+          <span class="text-sm" data-i18n="nav_records">Smart Health Form</span>
+        </a>
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-medium transition-colors" href="../health_record_form_part_1/code.html">
+          <span class="material-symbols-outlined text-xl">description</span>
+          <span class="text-sm" data-i18n="nav_forms">NHM Form (Part 1 &amp; 2)</span>
+        </a>
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-medium transition-colors" href="../settings_layout/code.html">
+          <span class="material-symbols-outlined text-xl">settings</span>
+          <span class="text-sm" data-i18n="nav_settings">Settings</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Actions: Emergency & Profile -->
+    <div class="space-y-3 pt-4 border-t border-outline-variant">
+      <button type="button" id="btn-emergency" class="w-full flex items-center justify-center gap-2 bg-error text-white font-bold py-2.5 px-4 rounded-xl hover:bg-red-700 transition-colors shadow-sm active:scale-98">
+        <span class="material-symbols-outlined text-lg">emergency</span>
+        <span class="text-sm" data-i18n="emergency_sos">Emergency SOS (108)</span>
+      </button>
+      <div class="flex items-center gap-3 px-2 py-1.5 bg-surface-container-low rounded-xl">
+        <div class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xs">
+          AW
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs font-bold text-on-surface truncate" id="worker-sidebar-name">Anita Devi (ASHA)</p>
+          <p class="text-[10px] text-on-surface-variant truncate">ID #104 • Rampur</p>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Dashboard -->
+  <main class="flex-1 md:ml-64 flex flex-col h-full overflow-y-auto pb-24 md:pb-10 px-4 md:px-8 pt-6 max-w-7xl mx-auto w-full space-y-6">
+
+    <!-- Top Greeting & Live Stats Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant shadow-sm">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-semibold uppercase tracking-wider text-saffron bg-saffron-light px-2.5 py-0.5 rounded-md">Namaste / नमस्ते</span>
+          <span class="text-xs text-on-surface-variant" id="dashboard-live-date">Thursday, 27 August 2026</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-primary mt-1" id="worker-welcome-heading">Welcome, ASHA Worker</h2>
+        <p class="text-sm text-on-surface-variant mt-0.5">Here is your daily clinical workload &amp; high-risk patient overview for Rampur Sector.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="btn-hero-voice-studio" type="button" class="h-11 px-5 bg-secondary text-white font-bold rounded-xl hover:bg-secondary-dark shadow-md flex items-center gap-2 active:scale-95 transition-transform">
+          <span class="material-symbols-outlined text-xl">mic</span>
+          <span>Start Voice Visit</span>
+        </button>
+        <a href="../calendar_scheduler_smart_layout/code.html" class="h-11 px-4 bg-surface-container-low text-primary font-bold rounded-xl hover:bg-surface-container-highest border border-outline-variant flex items-center gap-2 transition-colors">
+          <span class="material-symbols-outlined text-lg">calendar_month</span>
+          <span class="hidden sm:inline">Schedule</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 4 Interactive KPI Metric Tiles -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5 md:gap-4">
+      
+      <!-- Card 1: Today's Visits -->
+      <a href="../calendar_scheduler_smart_layout/code.html" class="group bg-surface-container-lowest p-4 md:p-5 rounded-2xl border border-outline-variant hover:border-blue-300 shadow-sm hover:shadow transition-all flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-lg">Visits Today</span>
+          <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-xl">calendar_today</span>
+          </div>
+        </div>
+        <div>
+          <div class="text-2xl md:text-3xl font-black text-primary" id="kpi-today-visits">--</div>
+          <p class="text-xs text-on-surface-variant mt-1 flex items-center gap-1">
+            <span>Scheduled for today</span>
+            <span class="material-symbols-outlined text-xs text-blue-600">arrow_forward</span>
+          </p>
+        </div>
+      </a>
+
+      <!-- Card 2: High Risk Alert Queue -->
+      <a href="#alerts-section" class="group bg-surface-container-lowest p-4 md:p-5 rounded-2xl border border-outline-variant hover:border-red-300 shadow-sm hover:shadow transition-all flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold text-error bg-red-50 px-2.5 py-1 rounded-lg">High Risk</span>
+          <div class="w-9 h-9 rounded-xl bg-red-100 text-error flex items-center justify-center group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-xl">warning</span>
+          </div>
+        </div>
+        <div>
+          <div class="text-2xl md:text-3xl font-black text-error" id="kpi-high-risk">--</div>
+          <p class="text-xs text-on-surface-variant mt-1 flex items-center gap-1">
+            <span>Require urgent triage</span>
+            <span class="material-symbols-outlined text-xs text-error">arrow_forward</span>
+          </p>
+        </div>
+      </a>
+
+      <!-- Card 3: Immunizations Due -->
+      <a href="../calendar_scheduler_smart_layout/code.html" class="group bg-surface-container-lowest p-4 md:p-5 rounded-2xl border border-outline-variant hover:border-purple-300 shadow-sm hover:shadow transition-all flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold text-purple-700 bg-purple-50 px-2.5 py-1 rounded-lg">Immunization</span>
+          <div class="w-9 h-9 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-xl">vaccines</span>
+          </div>
+        </div>
+        <div>
+          <div class="text-2xl md:text-3xl font-black text-primary" id="kpi-immunization">--</div>
+          <p class="text-xs text-on-surface-variant mt-1 flex items-center gap-1">
+            <span>Children due this week</span>
+            <span class="material-symbols-outlined text-xs text-purple-600">arrow_forward</span>
+          </p>
+        </div>
+      </a>
+
+      <!-- Card 4: Stored Health Records -->
+      <a href="../smart_health_record_form/code.html?tab=stored" class="group bg-surface-container-lowest p-4 md:p-5 rounded-2xl border border-outline-variant hover:border-emerald-300 shadow-sm hover:shadow transition-all flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg">Saved Data</span>
+          <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-xl">folder_shared</span>
+          </div>
+        </div>
+        <div>
+          <div class="text-2xl md:text-3xl font-black text-primary" id="kpi-total-records">--</div>
+          <p class="text-xs text-on-surface-variant mt-1 flex items-center gap-1">
+            <span>Database records stored</span>
+            <span class="material-symbols-outlined text-xs text-emerald-600">arrow_forward</span>
+          </p>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Hero Voice Consultation Studio Quick Bar -->
+    <div class="bg-gradient-to-r from-primary to-slate-900 text-white p-5 md:p-6 rounded-2xl shadow-md border border-slate-700 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
+      <div class="space-y-1.5 max-w-2xl">
+        <div class="flex items-center gap-2">
+          <span class="bg-emerald-500 text-slate-950 font-extrabold text-[11px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">Voice AI Engine</span>
+          <span class="text-xs text-slate-300">Hindi • English • Regional Indian Dialects</span>
+        </div>
+        <h3 class="text-xl md:text-2xl font-extrabold">Instant Audio-to-Transcript &amp; Clinical Extraction</h3>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Record or speak naturally with the patient. Gemma 4 12B automatically performs speaker diarization, detects danger signs, and populates the National Health Mission form.
+        </p>
+      </div>
+      <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full lg:w-auto shrink-0">
+        <button id="btn-home-start-mic" type="button" class="w-full sm:w-auto h-11 px-5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg transition-all active:scale-95 whitespace-nowrap">
+          <span class="material-symbols-outlined text-xl">mic</span>
+          <span>Open Voice Studio</span>
+        </button>
+        <a href="../smart_health_record_form/code.html" class="w-full sm:w-auto h-11 px-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl flex items-center justify-center gap-2 border border-white/20 transition-all whitespace-nowrap">
+          <span class="material-symbols-outlined text-lg">edit_note</span>
+          <span>Manual Form</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 2-Column Operational Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- Left Column (7 cols): Today's Schedule & Patient Queue -->
+      <div class="lg:col-span-7 space-y-4">
+        
+        <div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant shadow-sm space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-outline-variant pb-3">
+            <div>
+              <h3 class="font-extrabold text-primary text-lg flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary">event_available</span>
+                <span>Today's Visit Schedule</span>
+              </h3>
+              <p class="text-xs text-on-surface-variant">Prioritized home checkups for your designated catchment area.</p>
+            </div>
+            <a href="../calendar_scheduler_smart_layout/code.html" class="text-xs font-bold text-secondary hover:underline flex items-center gap-1">
+              <span>View Full Calendar</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+
+          <!-- Filter Pills -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
+            <button type="button" class="visit-filter-btn active px-3 py-1.5 rounded-lg bg-primary text-white font-bold" data-filter="all">All Visits</button>
+            <button type="button" class="visit-filter-btn px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container-highest font-medium" data-filter="priority">🚨 High Risk Only</button>
+            <button type="button" class="visit-filter-btn px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container-highest font-medium" data-filter="anc">Maternal (ANC)</button>
+            <button type="button" class="visit-filter-btn px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container-highest font-medium" data-filter="child">Child Health</button>
+          </div>
+
+          <!-- Dynamic Visit List -->
+          <div id="home-visits-list" class="space-y-3">
+            <div class="p-6 text-center text-on-surface-variant text-sm flex flex-col items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-3xl animate-spin text-primary">progress_activity</span>
+              <span>Loading scheduled visits...</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column (5 cols): Critical Alerts & Quick Tools -->
+      <div class="lg:col-span-5 space-y-5">
+        
+        <!-- Alerts Section -->
+        <div id="alerts-section" class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-outline-variant pb-3">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-error">notifications_active</span>
+              <h3 class="font-extrabold text-primary text-base">High-Risk Triage Alerts</h3>
+            </div>
+            <span id="alerts-count-badge" class="bg-red-100 text-error font-extrabold text-xs px-2.5 py-0.5 rounded-full">0 Open</span>
+          </div>
+          
+          <p class="text-xs text-on-surface-variant">
+            Automated alerts scored from clinical vitals, danger-sign checklists, and ML triage models.
+          </p>
+
+          <div id="alerts-list" class="space-y-2.5 max-h-[360px] overflow-y-auto pr-1">
+            <div class="p-4 text-center text-xs text-on-surface-variant">
+              No open high-risk alerts at this time.
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Access Clinical Tools -->
+        <div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant shadow-sm space-y-3">
+          <h3 class="font-extrabold text-primary text-base flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">apps</span>
+            <span>Clinical Quick Actions</span>
+          </h3>
+
+          <div class="grid grid-cols-2 gap-2.5">
+            <a href="../health_record_form_part_1/code.html" class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-highest border border-outline-variant flex flex-col gap-1.5 transition-colors">
+              <span class="material-symbols-outlined text-secondary text-xl">description</span>
+              <span class="font-bold text-xs text-primary">NHM Form Part 1</span>
+              <span class="text-[10px] text-on-surface-variant">Vitals &amp; Demographics</span>
+            </a>
+            <a href="../health_record_form_part_2/code.html" class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-highest border border-outline-variant flex flex-col gap-1.5 transition-colors">
+              <span class="material-symbols-outlined text-secondary text-xl">fact_check</span>
+              <span class="font-bold text-xs text-primary">NHM Form Part 2</span>
+              <span class="text-[10px] text-on-surface-variant">General &amp; Maternal</span>
+            </a>
+            <a href="../calendar_scheduler_smart_layout/code.html" class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-highest border border-outline-variant flex flex-col gap-1.5 transition-colors">
+              <span class="material-symbols-outlined text-blue-700 text-xl">route</span>
+              <span class="font-bold text-xs text-primary">AI Route Allocator</span>
+              <span class="text-[10px] text-on-surface-variant">Gemma Travel Optimizer</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="bg-surface-container-lowest font-medium text-sm fixed bottom-0 w-full z-50 border-t border-outline-variant flex justify-around items-center py-2 px-4 md:hidden shadow-lg">
+    <a class="flex flex-col items-center justify-center text-primary font-bold px-3 py-1" href="../home_layout/code.html">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+      <span class="text-[10px] mt-0.5">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-3 py-1" href="../calendar_scheduler_smart_layout/code.html">
+      <span class="material-symbols-outlined">calendar_month</span>
+      <span class="text-[10px] mt-0.5">Schedule</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-3 py-1" href="../smart_health_record_form/code.html">
+      <span class="material-symbols-outlined">clinical_notes</span>
+      <span class="text-[10px] mt-0.5">Forms</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-3 py-1" href="../settings_layout/code.html">
+      <span class="material-symbols-outlined">settings</span>
+      <span class="text-[10px] mt-0.5">Settings</span>
+    </a>
+  </nav>
+
+  <!-- Shared Libraries -->
+  <script src="../shared/sakhi-api.js"></script>
+  <script src="../shared/sakhi-i18n.js"></script>
+  <script src="../shared/sakhi-ui.js"></script>
+  <script src="../shared/sakhi-record.js"></script>
+  <script src="../shared/sakhi-app.js"></script>
+</body>
+</html>

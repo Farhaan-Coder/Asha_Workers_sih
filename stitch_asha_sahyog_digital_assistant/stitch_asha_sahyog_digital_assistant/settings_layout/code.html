@@ -1,0 +1,203 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Sukanya ASHA Digital - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+    extend: {
+        "colors": {
+            "surface-container-highest": "#e3e2e6",
+            "primary": "#002147",
+            "secondary": "#1b6d24",
+            "surface-container-low": "#f4f3f7",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#e3e2e6",
+            "on-surface": "#1a1b1e",
+            "on-surface-variant": "#44474e",
+            "primary-fixed": "#d6e3ff",
+            "tertiary-fixed": "#ffdbcb",
+            "on-tertiary-fixed-variant": "#6c391d",
+            "outline": "#cbd5e1",
+            "outline-variant": "#c4c6cf",
+            "background": "#faf9fd",
+            "on-background": "#1a1b1e",
+            "error": "#dc2626"
+        }
+    }
+    }
+}
+</script>
+<style>body { min-height: 100dvh; }</style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row antialiased overflow-x-hidden" data-sukanya-page="settings" data-sakhi-page="settings">
+
+  <!-- Desktop Left Navigation Sidebar -->
+  <nav class="w-64 fixed left-0 top-0 h-full bg-surface-container-lowest border-r border-outline-variant z-50 p-4 hidden md:flex flex-col justify-between shadow-sm">
+    <div class="space-y-6">
+      <!-- Brand Logo & App Title -->
+      <div class="flex items-center gap-3 px-2 py-1">
+        <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-bold shadow-sm">
+          <span class="material-symbols-outlined text-2xl">local_hospital</span>
+        </div>
+        <div>
+          <h1 class="font-extrabold text-base text-primary leading-tight" data-i18n="app_name">Sukanya ASHA</h1>
+          <p class="text-[11px] text-on-surface-variant font-medium" data-i18n="app_subtitle">Digital Health Assistant</p>
+        </div>
+      </div>
+
+      <!-- Gemma 4 12B AI Connected Badge -->
+      <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 flex items-center gap-2.5 shadow-xs">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+        </span>
+        <div class="flex-1 min-w-0">
+          <p class="text-[11px] font-bold text-emerald-900 leading-tight" data-i18n="ai_badge_title">Gemma 4 12B AI</p>
+          <p class="text-[10px] text-emerald-700 truncate" data-i18n="ai_badge_subtitle">Clinical Triage &amp; Schedule</p>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="flex flex-col gap-1.5">
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-medium transition-colors" href="../home_layout/code.html">
+          <span class="material-symbols-outlined text-xl">home</span>
+          <span class="text-sm" data-i18n="nav_home">Home Dashboard</span>
+        </a>
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-medium transition-colors" href="../calendar_scheduler_smart_layout/code.html">
+          <span class="material-symbols-outlined text-xl">calendar_month</span>
+          <span class="text-sm" data-i18n="nav_calendar">Visit Schedule</span>
+        </a>
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-medium transition-colors" href="../smart_health_record_form/code.html">
+          <span class="material-symbols-outlined text-xl">clinical_notes</span>
+          <span class="text-sm" data-i18n="nav_records">Smart Health Form</span>
+        </a>
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-primary font-medium transition-colors" href="../health_record_form_part_1/code.html">
+          <span class="material-symbols-outlined text-xl">description</span>
+          <span class="text-sm" data-i18n="nav_forms">NHM Form (Part 1 &amp; 2)</span>
+        </a>
+        <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-primary text-white font-bold transition-colors shadow-sm" href="../settings_layout/code.html">
+          <span class="material-symbols-outlined text-xl">settings</span>
+          <span class="text-sm" data-i18n="nav_settings">Settings</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Actions: Emergency & Profile -->
+    <div class="space-y-3 pt-4 border-t border-outline-variant">
+      <button type="button" id="btn-emergency" class="w-full flex items-center justify-center gap-2 bg-error text-white font-bold py-2.5 px-4 rounded-xl hover:bg-red-700 transition-colors shadow-sm active:scale-98">
+        <span class="material-symbols-outlined text-lg">emergency</span>
+        <span class="text-sm" data-i18n="emergency_sos">Emergency SOS (108)</span>
+      </button>
+      <div class="flex items-center gap-3 px-2 py-1.5 bg-surface-container-low rounded-xl">
+        <div class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xs">
+          AW
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs font-bold text-on-surface truncate" id="worker-sidebar-name">Anita Devi (ASHA)</p>
+          <p class="text-[10px] text-on-surface-variant truncate">ID #104 • Rampur</p>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Top Bar -->
+  <header class="md:hidden sticky top-0 left-0 w-full z-40 bg-surface-container-lowest/95 backdrop-blur border-b border-outline-variant px-4 h-14 flex items-center justify-between shadow-xs">
+    <div class="flex items-center gap-2.5">
+      <a href="../home_layout/code.html" class="w-9 h-9 rounded-xl bg-surface-container-low flex items-center justify-center text-primary">
+        <span class="material-symbols-outlined text-lg">arrow_back</span>
+      </a>
+      <h1 class="font-extrabold text-sm text-primary" data-i18n="settings_title">Settings &amp; Preferences</h1>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 md:ml-64 min-h-screen p-4 md:p-8 pb-24 md:pb-12 max-w-5xl mx-auto w-full space-y-6">
+    <div class="mb-6">
+      <h1 class="text-2xl md:text-3xl font-extrabold text-primary" data-i18n="settings_title">Settings &amp; System Configuration</h1>
+      <p class="text-sm text-on-surface-variant mt-1" data-i18n="settings_subtitle">Manage offline sync, alerts, AI integration, and community requests.</p>
+    </div>
+
+    <div class="bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-sm p-6 flex flex-col gap-4">
+      <div class="flex justify-between items-center py-3 border-b border-outline-variant">
+        <div>
+          <h3 class="font-bold text-sm text-primary" data-i18n="settings_language">Language Preference</h3>
+          <p class="text-xs text-on-surface-variant" data-i18n="settings_language_desc">Choose your preferred app interface language</p>
+        </div>
+        <select class="border border-outline-variant rounded-xl px-3 py-2 text-xs font-bold bg-background text-primary" id="setting-language">
+          <option value="en">English (India)</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="bn">বাংলা (Bengali)</option>
+          <option value="ta">தமிழ் (Tamil)</option>
+          <option value="mr">मराठी (Marathi)</option>
+        </select>
+      </div>
+
+      <div class="flex justify-between items-center py-3 border-b border-outline-variant">
+        <div>
+          <h3 class="font-bold text-sm text-primary" data-i18n="settings_offline_mode">Offline Sync Cache</h3>
+          <p class="text-xs text-on-surface-variant" data-i18n="settings_offline_desc">Automatically store visits and sync when online</p>
+        </div>
+        <input type="checkbox" class="w-5 h-5 text-primary rounded-md focus:ring-primary" checked id="setting-offline">
+      </div>
+
+      <div class="flex justify-between items-center py-3 border-b border-outline-variant">
+        <div>
+          <h3 class="font-bold text-sm text-primary" data-i18n="settings_notifications">Urgent Triage Push Alerts</h3>
+          <p class="text-xs text-on-surface-variant" data-i18n="settings_notifications_desc">Instant notifications for high-risk maternal &amp; child danger signs</p>
+        </div>
+        <input type="checkbox" class="w-5 h-5 text-primary rounded-md focus:ring-primary" checked id="setting-notifications">
+      </div>
+
+      <div class="flex justify-between items-center py-3 border-b border-outline-variant">
+        <div>
+          <h3 class="font-bold text-sm text-primary flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-red-600 text-base">emergency</span>
+            <span data-i18n="settings_emergency_hub">Emergency SOS &amp; Healthcare Contacts</span>
+          </h3>
+          <p class="text-xs text-on-surface-variant" data-i18n="settings_emergency_hub_desc">Configure 108 ambulance, medical officer, and custom emergency numbers</p>
+        </div>
+        <button type="button" class="btn-trigger-emergency px-3 py-1.5 bg-red-50 hover:bg-red-100 text-error font-bold text-xs rounded-lg border border-red-200 transition-colors flex items-center gap-1 shadow-2xs">
+          <span class="material-symbols-outlined text-sm">settings_phone</span>
+          <span data-i18n="settings_manage_contacts">Manage</span>
+        </button>
+      </div>
+
+      <div class="flex justify-center pt-3">
+        <a href="../secure_login_smart_layout/code.html" class="px-6 py-2.5 bg-red-50 hover:bg-red-100 text-error font-bold text-xs rounded-xl border border-red-200 transition-colors flex items-center gap-1.5" id="btn-logout">
+          <span class="material-symbols-outlined text-base">logout</span>
+          <span data-i18n="settings_logout">Log Out of ASHA Session</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="bg-surface-container-lowest font-medium text-sm fixed bottom-0 w-full z-50 border-t border-outline-variant flex justify-around items-center py-2 px-4 md:hidden shadow-lg">
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-3 py-1" href="../home_layout/code.html">
+      <span class="material-symbols-outlined">home</span>
+      <span class="text-[10px] mt-0.5" data-i18n="nav_home">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-3 py-1" href="../calendar_scheduler_smart_layout/code.html">
+      <span class="material-symbols-outlined">calendar_month</span>
+      <span class="text-[10px] mt-0.5" data-i18n="nav_calendar">Schedule</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-3 py-1" href="../smart_health_record_form/code.html">
+      <span class="material-symbols-outlined">clinical_notes</span>
+      <span class="text-[10px] mt-0.5" data-i18n="nav_records">Forms</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-primary font-bold px-3 py-1" href="../settings_layout/code.html">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+      <span class="text-[10px] mt-0.5" data-i18n="nav_settings">Settings</span>
+    </a>
+  </nav>
+
+  <script src="../shared/sakhi-api.js"></script>
+  <script src="../shared/sakhi-i18n.js"></script>
+  <script src="../shared/sakhi-ui.js"></script>
+  <script src="../shared/sakhi-app.js"></script>
+</body></html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ASHA Digital - Worker Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#88d982",
+                        "accent-green": "#e8f5e9",
+                        "saffron": "#e65100",
+                        "on-secondary-container": "#217128",
+                        "secondary": "#1b6d24",
+                        "on-surface": "#1a1b1e",
+                        "accent-saffron": "#fff3e0",
+                        "on-tertiary-fixed-variant": "#6c391d",
+                        "inverse-on-surface": "#f1f0f4",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#faf9fd",
+                        "on-surface-variant": "#44474e",
+                        "inverse-primary": "#aec7f6",
+                        "secondary-container": "#a0f399",
+                        "secondary-fixed": "#a3f69c",
+                        "green-vibrant": "#2ecc71",
+                        "on-secondary-fixed": "#002204",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#aec7f6",
+                        "primary": "#002147",
+                        "surface-container-low": "#f4f3f7",
+                        "surface-variant": "#e3e2e6",
+                        "surface-dim": "#f3f4f6",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "inverse-surface": "#2f3033",
+                        "outline": "#cbd5e1",
+                        "error": "#dc2626",
+                        "tertiary": "#180500",
+                        "on-primary-fixed": "#001b3d",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e9e7eb",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#b97958",
+                        "on-tertiary-fixed": "#341100",
+                        "surface-container-highest": "#e3e2e6",
+                        "on-primary-container": "#708ab5",
+                        "surface": "#faf9fd",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "on-background": "#1a1b1e",
+                        "surface-tint": "#465f88",
+                        "background": "#faf9fd",
+                        "tertiary-container": "#3d1500",
+                        "primary-container": "#002147",
+                        "outline-variant": "#c4c6cf",
+                        "tertiary-fixed": "#ffdbcb",
+                        "on-secondary-fixed-variant": "#005312",
+                        "surface-container": "#efedf1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "stack-lg": "1.5rem",
+                        "margin-mobile": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "touch-target-min": "48px",
+                        "stack-sm": "0.5rem",
+                        "gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "label-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface-dim min-h-screen flex flex-col" data-sukanya-page="register" data-sakhi-page="register">
+<!-- Transactional Screen - Top Navigation Shell Suppressed as per Shared Components Logic -->
+<!-- Main Content Area -->
+<main class="flex-grow flex items-center justify-center p-margin-mobile md:p-margin-desktop">
+<!-- Centered Registration Card -->
+<div class="bg-surface-container-lowest border border-outline rounded-xl w-full max-w-md p-6 md:p-8 flex flex-col gap-stack-lg shadow-sm">
+<!-- Brand & Context -->
+<div class="flex flex-col gap-stack-sm text-center items-center">
+<div class="w-16 h-16 rounded-full bg-accent-saffron flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-saffron text-3xl" data-icon="clinical_notes">clinical_notes</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface">Sukanya Worker Registration</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+Enter your registered mobile number to receive your secure login PIN via SMS.
+</p>
+</div>
+<!-- Form -->
+<form id="register-form" class="flex flex-col gap-stack-md">
+<!-- Input Group -->
+<div class="flex flex-col gap-2">
+<label class="font-label-lg text-label-lg text-primary" for="mobile_number">Enter Mobile Number</label>
+<div class="relative flex items-center w-full">
+<!-- Prefix -->
+<div class="absolute left-4 flex items-center justify-center pointer-events-none text-on-surface-variant font-body-md text-body-md border-r border-outline pr-3">
++91
+</div>
+<!-- Input -->
+<input class="w-full h-touch-target-min pl-16 pr-14 border border-outline rounded-lg bg-surface-container-lowest font-body-lg text-body-lg text-on-surface focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-shadow" id="mobile_number" name="mobile_number" pattern="[0-9]{10}" placeholder="9876543210" value="9876543210" required="" type="tel">
+<!-- Voice Input Action -->
+<button aria-label="Use voice input" class="absolute right-2 h-10 w-10 flex items-center justify-center text-primary rounded-md hover:bg-surface-container-low transition-colors group" type="button">
+<span class="material-symbols-outlined text-2xl group-active:text-secondary group-active:scale-95 transition-transform" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">10-digit mobile number</p>
+</div>
+<!-- Action Button -->
+<button id="register-submit-btn" class="w-full h-touch-target-min bg-primary text-on-primary font-label-lg text-label-lg rounded-lg mt-4 hover:bg-primary-container active:bg-primary-container shadow-sm active:shadow-md transition-all duration-200 flex items-center justify-center gap-2" type="submit">
+Generate SMS PIN
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<div class="text-center mt-2">
+<a class="font-label-md text-label-md text-primary hover:underline" href="../sms_pin_login/code.html">Already have a PIN? Log In</a>
+</div>
+</div>
+</main>
+<script src="../shared/sakhi-api.js"></script>
+<script src="../shared/sakhi-i18n.js"></script>
+<script src="../shared/sakhi-ui.js"></script>
+<script src="../shared/sakhi-app.js"></script>
+</body></html>

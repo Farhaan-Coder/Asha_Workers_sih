@@ -1,0 +1,158 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Sukanya ASHA Sahyog App - Splash Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e9e7eb",
+                        "on-tertiary": "#ffffff",
+                        "saffron": "#e65100",
+                        "on-secondary-fixed-variant": "#005312",
+                        "background": "#faf9fd",
+                        "accent-green": "#e8f5e9",
+                        "on-surface-variant": "#44474e",
+                        "secondary": "#1b6d24",
+                        "surface": "#faf9fd",
+                        "on-secondary-fixed": "#002204",
+                        "error": "#dc2626",
+                        "surface-dim": "#f3f4f6",
+                        "on-tertiary-fixed-variant": "#6c391d",
+                        "on-surface": "#1a1b1e",
+                        "green-vibrant": "#2ecc71",
+                        "inverse-surface": "#2f3033",
+                        "primary": "#002147",
+                        "primary-container": "#002147",
+                        "surface-container-low": "#f4f3f7",
+                        "secondary-fixed-dim": "#88d982",
+                        "on-background": "#1a1b1e",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#cbd5e1",
+                        "on-tertiary-container": "#b97958",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f1f0f4",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e3e2e6",
+                        "tertiary-fixed": "#ffdbcb",
+                        "inverse-primary": "#aec7f6",
+                        "primary-fixed-dim": "#aec7f6",
+                        "secondary-container": "#a0f399",
+                        "accent-saffron": "#fff3e0",
+                        "surface-container": "#efedf1",
+                        "on-tertiary-fixed": "#341100",
+                        "outline-variant": "#c4c6cf",
+                        "surface-variant": "#e3e2e6",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-fixed": "#001b3d",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#3d1500",
+                        "tertiary": "#180500",
+                        "on-secondary-container": "#217128",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#465f88",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-primary-container": "#708ab5",
+                        "surface-bright": "#faf9fd",
+                        "secondary-fixed": "#a3f69c",
+                        "tertiary-fixed-dim": "#ffb691"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "2.5rem",
+                        "stack-sm": "0.5rem",
+                        "gutter": "1rem",
+                        "margin-mobile": "1rem",
+                        "stack-lg": "1.5rem",
+                        "stack-md": "1rem",
+                        "touch-target-min": "48px"
+                    },
+                    "fontFamily": {
+                        "label-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="h-full bg-surface-container-lowest text-on-surface flex flex-col justify-center items-center" data-sukanya-page="splash" data-sakhi-page="splash">
+<div class="w-full max-w-md px-margin-mobile flex flex-col items-center justify-between min-h-screen py-12">
+<!-- Top Section: Emblem and Branding -->
+<header class="flex flex-col items-center space-y-stack-sm mt-8 fade-in text-center">
+<div class="w-24 h-24 mb-4">
+<img class="w-full h-full object-contain" data-alt="High quality official vector illustration of the State Emblem of India, the Lion Capital of Ashoka, in deep navy blue on a pure white background. The image should convey authority, government officiality, and trust. Clean lines, flat design suitable for a government app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZhxvvTNplfsrNGsjwCasmoND79K8h240DS2KZWzUX8yPBeWpOxDybwZGdYwo_St_R0DgaUZPA9UgOXNchhmTeG_TXKpJhIKz3s36CV4s2UVGBG1_2jW321j1ia99z8oZxf6OvygC9N1hbepubVSm9KobvY803gUbK3iS2RwW0U_nFX-3nr1-ePlzA3zFaK_3Ba49ZahrhUlTilWok_JLUBh6vhoqu8MyC2iGHi6e0OPOYU7OZZbFBDw">
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Sukanya ASHA Sahyog</h1>
+<p class="font-body-md text-body-md text-on-surface-variant uppercase tracking-widest mt-2">Govt of India</p>
+</header>
+<!-- Center Section: Main Illustration -->
+<main class="flex-1 flex flex-col items-center justify-center w-full py-8 fade-in" style="animation-delay: 0.3s; animation-fill-mode: both;">
+<div class="w-full max-w-xs relative flex justify-center items-center">
+<!-- Using the requested image placeholder pattern based on the prompt's explicit image reference, though I cannot inject raw image files, I must provide a placeholder that matches the description -->
+<img alt="Circular Hindi logo 'आशा हम सब एक' and an ASHA worker helping women" class="w-full h-auto object-contain rounded-full shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7yCHQJzFVlyL9RPJHQkxb2NA_aqxvgjFcNZFOlLbXCwrQ3t2n-7K8BWyjXBCE0sW5mNU-tHAbL1sswy79wYnsHBHfCXxmrXcXeoNPUh3jYQ3XF4_K1EJgOlk__uuP5Iga98Vf0YoAU8khZX9sLa0qp595VINHXrV6LxfQSEtNtqf-2MZGqxoU2-lF70IBllM9qX7BmbJuUmbAOr4eYYh6uIv6Hor7xgiYNNVl0k4lWw0rfJBhhCV7Tw" style="max-height: 300px;">
+</div>
+<div class="mt-8 text-center space-y-4">
+<p class="font-body-lg text-body-lg text-on-surface px-4">Empowering Healthcare at the Grassroots</p>
+<div class="w-12 h-1 bg-saffron mx-auto rounded-full"></div>
+</div>
+</main>
+<!-- Bottom Section: Loading/Action (Optional for Splash) -->
+<footer class="w-full flex flex-col items-center justify-center pb-8 fade-in" style="animation-delay: 0.6s; animation-fill-mode: both;">
+<div class="flex space-x-2">
+<div class="w-2 h-2 rounded-full bg-secondary animate-bounce"></div>
+<div class="w-2 h-2 rounded-full bg-secondary animate-bounce" style="animation-delay: 0.2s"></div>
+<div class="w-2 h-2 rounded-full bg-secondary animate-bounce" style="animation-delay: 0.4s"></div>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-4" id="splash-status">Initializing Secure Environment...</p>
+</footer>
+</div>
+<script src="../shared/sakhi-api.js"></script>
+<script src="../shared/sakhi-i18n.js"></script>
+<script src="../shared/sakhi-ui.js"></script>
+<script src="../shared/sakhi-app.js"></script>
+</body></html>

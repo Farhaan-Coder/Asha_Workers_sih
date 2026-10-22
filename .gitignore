@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv*/
+venv*/
+*.egg
+.pytest_cache/
+
+# Large binaries (allow lightweight repo models)
+*.joblib
+!backend/models/*.joblib
+!backend/models/risk/*.joblib
+*.gguf
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+*.ct2
+data/sakhi.db
+
+# Node
+node_modules/
+frontend/dist/
+
+# Secrets
+.env
+backend/.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc media & temporary screenshot artifacts
+*.mp3
+*.wav
+*.mp4
+/*_screenshot*.png
+/*_verified.png
+/*_redesign*.png
+/*_scrolled.png
+/*_cleaned_*.png
+/*_fullscreen_*.png
+/*_perfect_*.png
+/findings.md
+/task_plan.md
+/progress.md
+/voice_studio_dialogue_bubbles.png

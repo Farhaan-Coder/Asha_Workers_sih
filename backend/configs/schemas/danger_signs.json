@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Danger Sign Detection",
+  "description": "Danger signs from an ASHA home visit conversation. EVERY flag MUST cite exact utterance evidence. No evidence = no flag. This is the anti-hallucination contract.",
+  "type": "object",
+  "properties": {
+    "visit_type": {
+      "type": "string",
+      "enum": ["antenatal", "postnatal_mother", "newborn", "child_under5"]
+    },
+    "danger_signs": {
+      "type": "array",
+      "description": "Detected danger signs. Empty array if none found.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sign": {"type": "string"},
+          "category": {"type": "string", "enum": ["immediate_referral", "urgent_care", "monitor_closely"]},
+          "clinical_value": {"type": ["string", "null"]},
+          "utterance_evidence": {"type": "string"},
+          "confidence": {"type": "number", "minimum": 0.0, "maximum": 1.0}
+        },
+        "required": ["sign", "category", "utterance_evidence", "confidence"]
+      }
+    },
+    "referral_decision": {
+      "type": "object",
+      "properties": {
+        "decision": {"type": "string", "enum": ["refer_immediately", "refer_within_24h", "continue_monitoring", "routine_followup"]},
+        "reason": {"type": "string"},
+        "evidence_utterances": {"type": "array", "items": {"type": "string"}},
+        "recommended_facility": {"type": ["string", "null"], "enum": ["PHC", "CHC", "district_hospital", "FRU", null]}
+      },
+      "required": ["decision", "reason", "evidence_utterances"]
+    },
+    "maternal_danger_signs_checklist": {
+      "type": "object",
+      "properties": {
+        "severe_vaginal_bleeding": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "convulsions": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "severe_headache_blurred_vision": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "high_fever": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "severe_abdominal_pain": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "fast_difficult_breathing": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "swelling_face_hands": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "reduced_fetal_movement": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "water_break_prom": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "foul_vaginal_discharge": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]}
+      }
+    },
+    "newborn_danger_signs_checklist": {
+      "type": "object",
+      "properties": {
+        "not_feeding_well": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "convulsions": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "fast_breathing_gte60": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "severe_chest_indrawing": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "high_temperature": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "low_temperature": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "no_movement": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "jaundice": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]},
+        "umbilicus_red_pus": {"type": "string", "enum": ["detected", "not_detected", "not_assessed"]}
+      }
+    }
+  },
+  "required": ["visit_type", "danger_signs", "referral_decision"]
+}

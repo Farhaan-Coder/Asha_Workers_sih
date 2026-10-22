@@ -1,0 +1,212 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Sukanya ASHA Worker Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#d6e3ff",
+                      "surface-container-highest": "#e3e2e6",
+                      "on-primary-container": "#708ab5",
+                      "secondary": "#1b6d24",
+                      "inverse-surface": "#2f3033",
+                      "surface-bright": "#faf9fd",
+                      "accent-green": "#e8f5e9",
+                      "secondary-fixed-dim": "#88d982",
+                      "on-primary-fixed": "#001b3d",
+                      "inverse-primary": "#aec7f6",
+                      "on-tertiary-fixed-variant": "#6c391d",
+                      "surface-variant": "#e3e2e6",
+                      "green-vibrant": "#2ecc71",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-background": "#1a1b1e",
+                      "tertiary-fixed-dim": "#ffb691",
+                      "on-surface": "#1a1b1e",
+                      "outline": "#cbd5e1",
+                      "surface": "#faf9fd",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container": "#efedf1",
+                      "on-secondary-container": "#217128",
+                      "surface-container-low": "#f4f3f7",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#a3f69c",
+                      "saffron": "#e65100",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "surface-container-high": "#e9e7eb",
+                      "on-tertiary-fixed": "#341100",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed": "#002204",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdbcb",
+                      "accent-saffron": "#fff3e0",
+                      "surface-tint": "#465f88",
+                      "background": "#faf9fd",
+                      "on-tertiary-container": "#b97958",
+                      "tertiary-container": "#3d1500",
+                      "on-surface-variant": "#44474e",
+                      "inverse-on-surface": "#f1f0f4",
+                      "primary-fixed-dim": "#aec7f6",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#a0f399",
+                      "on-secondary-fixed-variant": "#005312",
+                      "primary-container": "#002147",
+                      "outline-variant": "#c4c6cf",
+                      "surface-dim": "#dad9dd",
+                      "primary": "#002147",
+                      "error": "#dc2626",
+                      "tertiary": "#180500"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-lg": "1.5rem",
+                      "margin-desktop": "2.5rem",
+                      "margin-mobile": "1rem",
+                      "touch-target-min": "48px",
+                      "stack-sm": "0.5rem",
+                      "gutter": "1rem",
+                      "stack-md": "1rem"
+              },
+              "fontFamily": {
+                      "headline-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["26px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "label-lg": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim text-on-surface min-h-screen flex flex-col items-center justify-center pt-16 pb-24 md:py-0 relative overflow-x-hidden" data-sukanya-page="register" data-sakhi-page="register">
+<!-- Top Navigation (Mobile primarily, based on spec) -->
+<header class="md:hidden flex justify-between items-center px-margin-mobile h-touch-target-min w-full bg-surface-container-lowest border-t-4 border-secondary shadow-sm docked full-width top-0 fixed z-40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">badge</span>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Sukanya ASHA Digital</h1>
+</div>
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">language</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md px-margin-mobile flex-grow flex flex-col justify-center relative z-10 mt-8 md:mt-0">
+<!-- Background Decorative Element (Abstract Saffron/Green hint) -->
+<div class="absolute -top-32 -left-32 w-64 h-64 bg-accent-saffron rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-[-1] animate-pulse"></div>
+<div class="absolute -bottom-32 -right-32 w-64 h-64 bg-accent-green rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-[-1] animate-pulse" style="animation-delay: 2s;"></div>
+<!-- Registration Card -->
+<div class="bg-surface-container-lowest border border-outline rounded-xl shadow-sm p-stack-lg relative overflow-hidden">
+<!-- Subtle top accent line -->
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-saffron to-secondary"></div>
+<div class="text-center mb-stack-lg">
+<div class="w-16 h-16 bg-surface-container-low rounded-full flex items-center justify-center mx-auto mb-4 border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">ASHA Worker Registration</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Enter your registered mobile number to receive your secure login PIN via SMS.
+                </p>
+</div>
+<form class="space-y-stack-md" id="register-form">
+<div class="space-y-stack-sm relative">
+<label class="block font-label-md text-label-md text-primary" for="mobile_number">Enter Mobile Number</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant">phone_iphone</span>
+</div>
+<input class="block w-full pl-10 pr-12 py-3 bg-surface border border-outline rounded-lg focus:ring-2 focus:ring-primary focus:border-primary text-on-surface font-body-md text-body-md h-touch-target-min transition-shadow" id="mobile_number" name="mobile_number" pattern="[+0-9 ]+" placeholder="+91 98765 43210" required="" type="tel">
+<!-- Voice Input Action -->
+<div class="absolute inset-y-0 right-0 pr-1 flex items-center">
+<div class="h-8 w-px bg-outline mx-1"></div>
+<button class="p-2 text-secondary hover:bg-accent-green rounded-full transition-colors flex items-center justify-center active:bg-secondary-container active:scale-95" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-2 relative">
+<button class="w-full h-touch-target-min bg-primary text-on-primary font-label-lg text-label-lg rounded-lg shadow-[0_4px_14px_0_rgba(0,33,71,0.39)] hover:bg-primary-container hover:shadow-[0_6px_20px_rgba(0,33,71,0.23)] active:scale-95 active:shadow-sm transition-all flex items-center justify-center gap-2" type="submit">
+<span>Generate SMS PIN</span>
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+<!-- Loading Overlay on Button -->
+<div class="hidden absolute inset-0 bg-primary rounded-lg flex items-center justify-center" id="loading">
+<span class="material-symbols-outlined text-on-primary animate-spin">progress_activity</span>
+</div>
+</div>
+</form>
+<div class="mt-stack-lg text-center space-y-2">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">help</span> Need assistance?
+                </a>
+<a class="font-body-sm text-secondary hover:underline block mt-4" href="../secure_login_smart_layout/code.html">Already registered? Login Here</a>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile mostly, suppressed on desktop as per generic responsive logic, but explicitly requested in prompt context) -->
+<!-- Note: User prompt implies Home, Calendar, Forms, Settings should be present. We will render them but keep them mostly inactive as this is a registration screen, but strictly following the requested array. -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center py-2 px-margin-mobile bg-surface-container-lowest border-t border-outline-variant">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 duration-200 p-2 rounded-lg w-16" href="../home_layout/code.html">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-[10px] mt-1">Home</span>
+</a>
+<!-- Schedule (Calendar) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 duration-200 p-2 rounded-lg w-16" href="../calendar_scheduler_smart_layout/code.html">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-[10px] mt-1">Schedule</span>
+</a>
+<!-- Forms -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 duration-200 p-2 rounded-lg w-16" href="../health_record_form_part_1/code.html">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-[10px] mt-1">Forms</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-90 duration-200 p-2 rounded-lg w-16" href="../settings_layout/code.html">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-[10px] mt-1">Settings</span>
+</a>
+</nav>
+<script src="../shared/sakhi-api.js"></script>
+<script src="../shared/sakhi-i18n.js"></script>
+<script src="../shared/sakhi-ui.js"></script>
+<script src="../shared/sakhi-app.js"></script>
+</body></html>
